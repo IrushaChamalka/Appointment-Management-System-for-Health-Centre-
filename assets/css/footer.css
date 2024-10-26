@@ -1,0 +1,53 @@
+.footer {
+  border-top: 80px solid rgba(169, 169, 169, 0.151);
+  margin-top: 30px;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: 20% 20% 60%;
+  gap: 2rem;
+  background-color: #0d6efd;
+  padding: 40px 40px 0 40px;
+}
+
+.footer .box-container .box p {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+  display: block;
+  font-size: 16px;
+  color: white;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+  padding-right: 0.5rem;
+  color: white;
+}
+
+.footer .box-container .box a:hover i {
+  padding-right: 0.2rem;
+}
+
+.footer .credit {
+  padding: 1.7rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--light-color);
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.footer .credit span {
+  color: var(--blue);
+}
+
+.selected {
+  background-color: #ffd700; /* Change this to the desired color */
+  color: white;
+}
