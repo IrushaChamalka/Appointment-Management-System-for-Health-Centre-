@@ -62,7 +62,7 @@
           if(in_array($i, $booked)){
             ?>
               <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
-              <label class="btn btn-outline-danger custom-btn-size" onmouseover="showModal(<?php echo $i; ?>)"  for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
+              <label class="btn btn-outline-danger custom-btn-size" onclick="showModal(<?php echo $i; ?>)"  for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
             <?php
           }
           else {
@@ -92,7 +92,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name">NAME:</label>
-                    <input class="form-control" type="text" id="modal_name" disabled>
+                    <input class="form-control" type="text" id="modal_name" value="" disabled>
                 </div>
                 <div class="form-group">
                     <label for="tel">TEL:</label>
@@ -104,11 +104,11 @@
                 </div>
                 <div class="form-group">
                     <label for="date">DATE:</label>
-                    <input class="form-control" type="text" id="modal_date" disabled>
+                    <input class="form-control" type="text" id="modal_date" value="<?php echo $_GET['date']?>" disabled>
                 </div>
                 <div class="form-group">
                     <label for="sheet">SHEET:</label>
-                    <input class="form-control" type="text" id="modal_sheet" disabled>
+                    <input class="form-control" type="text" id="modal_sheet" value="<?php echo $_GET['sheet'] ?>" disabled>
                 </div>
             </div>
             <div class="modal-footer">
@@ -119,14 +119,24 @@
 </div>
 </div>
 
+<?php 
+  if(isset($_GET['sheet']) && isset($_GET['date'])){
+    ?>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            let seatModal = new bootstrap.Modal(document.getElementById('seatModal'));
+            seatModal.show();
+            });
+    </script>
+    <?php
+  }
+
+?>
+
 <script>
 function showModal(seatNumber) {
-    document.getElementById('modal_name').value = "John Doe";  
-    document.getElementById('modal_tel').value = "1234567890";  
-    document.getElementById('modal_nic').value = "991234567V";  
-    document.getElementById('modal_date').value = "2024-10-28";  
-    document.getElementById('modal_sheet').value = seatNumber; 
-    $('#seatModal').modal('show');
+  
+    window.location.href = "./?sheet=" + seatNumber + "&date=<?php echo $selected?>";
 }
 </script>
 

@@ -2,7 +2,12 @@
 
 include("./../../db_config.php");
 
-$reg_number = mysqli_real_escape_string($conn, $_POST['reg_number']);
+$year = mysqli_real_escape_string($conn,$_POST['year']);
+$department = mysqli_real_escape_string($conn,$_POST['dpt']);
+$reg_no = mysqli_real_escape_string($conn,$_POST['reg_no']);
+
+// Retrieve form data
+$reg_number = $year.$department.$reg_no;
 $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
 $name_with_initials = mysqli_real_escape_string($conn, $_POST['name_with_initials']);
 $gender = mysqli_real_escape_string($conn, $_POST['gender']);
@@ -20,20 +25,22 @@ $weight = mysqli_real_escape_string($conn, $_POST['weight']);
 $gardian_name = mysqli_real_escape_string($conn, $_POST['gardian_name']);
 $relation = mysqli_real_escape_string($conn, $_POST['relation']);
 $contact_number = mysqli_real_escape_string($conn, $_POST['contact_number']);
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hashing password for security
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$re_password = password_hash($_POST['re_password'], PASSWORD_DEFAULT); // Hashing password for security
 $blood_group = mysqli_real_escape_string($conn, $_POST['blood_group']);
 $last_school_attend = mysqli_real_escape_string($conn, $_POST['last_school_attend']);
 $profile_photo = mysqli_real_escape_string($conn, $_POST['profile_photo']);
 
 // SQL query to insert the user into the database
-$sql = "INSERT INTO user_details (reg_number, full_name, name_with_initials, gender, dob, mobile_number, email, residential_address, permenent_address, nic, martial_status, faculty, department, height, weight, gardian_name, relation, contact_number, password, blood_group, last_school_attend, profile_photo)
+$sql = "INSERT INTO user_details (reg_number, full_name, name_with_initials, gender, dob, mobile_number, email, residential_address, permenent_address, nic, martial_status, faculty, department, height, weight, gardian_name, relation, contact_number, password , blood_group, last_school_attend, profile_photo)
 VALUES ('$reg_number', '$full_name', '$name_with_initials', '$gender', '$dob', '$mobile_number', '$email', '$residential_address', '$permenent_address', '$nic', '$martial_status', '$faculty', '$department', '$height', '$weight', '$gardian_name', '$relation', '$contact_number', '$password', '$blood_group', '$last_school_attend', '$profile_photo')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Registration successful!";
+    header("location: http://localhost/medibook/public/?path=login");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+// Close the database connection
 $conn->close();
 ?>
