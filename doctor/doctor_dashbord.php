@@ -23,10 +23,7 @@
                     <option value="<?php echo $next_day->format('Y-m-d'); ?>" <?php echo ($selected_date == $date_value)? "selected" : "";?>><?php  echo $next_day->format("D,j M")?></option>
                   <?php
                 }
-                
-             
-            }
-            
+            }  
           ?>
           </select>
         </form>
@@ -121,20 +118,16 @@
     </div>
 </div>
 </div>
+
 <script>
 function showModal(seatNumber) {
-    // Fetch the data dynamically for this seat (this is where you would add PHP values)
-    document.getElementById('modal_name').value = "John Doe";  // Example name, replace with dynamic PHP data
-    document.getElementById('modal_tel').value = "1234567890";  // Replace with PHP data
-    document.getElementById('modal_nic').value = "991234567V";  // Replace with PHP data
-    document.getElementById('modal_date').value = "2024-10-28";  // Example date, replace with selected date
-    document.getElementById('modal_sheet').value = seatNumber;  // Display the seat number
-
-    // Show the modal
+    document.getElementById('modal_name').value = "John Doe";  
+    document.getElementById('modal_tel').value = "1234567890";  
+    document.getElementById('modal_nic').value = "991234567V";  
+    document.getElementById('modal_date').value = "2024-10-28";  
+    document.getElementById('modal_sheet').value = seatNumber; 
     $('#seatModal').modal('show');
 }
-
 </script>
-
 
 <?php include("./doctor_footer.php") ?>

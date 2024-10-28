@@ -18,7 +18,7 @@
                     $_SESSION['dr_id'] = $row['dr_id'];
                     $_SESSION['dr_nic'] = $row['nic'];
                     $_SESSION['dr_name'] = $row['dr_name'];
-                    header('location: ./doctor_dashbord.php');
+                    header('location: ./index.php');
                 }
             }else {
                 echo "<script>alert('doctor not found');</script>";
