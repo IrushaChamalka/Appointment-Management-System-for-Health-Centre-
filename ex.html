@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Options</title>
+</head>
+<body>
+    <!-- First Select Dropdown -->
+    <label for="category">Choose a Category:</label>
+    <select id="category" onchange="updateOptions()">
+        <option value="">--Select--</option>
+        <option value="science">Science</option>
+        <option value="management">Management</option>
+    </select>
+
+    <!-- Second Select Dropdown -->
+    <label for="subject">Choose a Subject:</label>
+    <select id="subject">
+        <option value="">--Select--</option>
+    </select>
+
+    <script>
+        function updateOptions() {
+            // Get the selected value from the first select box
+            var category = document.getElementById("category").value;
+
+            // Get the second select box
+            var subject = document.getElementById("subject");
+
+            // Clear previous options
+            subject.innerHTML = '<option value="">--Select--</option>';
+
+            // Define options for Science
+            if (category === "science") {
+                var scienceOptions = ["CSC", "PHY", "BIO"];
+                scienceOptions.forEach(function(option) {
+                    var newOption = document.createElement("option");
+                    newOption.value = option.toLowerCase();
+                    newOption.text = option;
+                    subject.appendChild(newOption);
+                });
+            }
+
+            // Define options for Management
+            else if (category === "management") {
+                var managementOptions = ["MGT", "BCOM"];
+                managementOptions.forEach(function(option) {
+                    var newOption = document.createElement("option");
+                    newOption.value = option.toLowerCase();
+                    newOption.text = option;
+                    subject.appendChild(newOption);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

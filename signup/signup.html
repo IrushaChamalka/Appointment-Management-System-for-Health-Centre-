@@ -9,14 +9,60 @@
 
 </head>
 <body>
-    <h2>User Signup</h2>
-    <form action="signup.php" method="POST">
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        
+    <form action="signup.php" method="POST" class="w-65">
+        <h1>User Signup</h1><br>
         <div class="form-row">
 
-            <div class="mb-3">
-                <label for="reg_number" class="form-label">Registration Number:</label>
-                <input type="text" id="reg_number" name="reg_number" class="form-control" required>
+            <div class="row g-3">
+
+                <div class="col-md-6 g-3">
+                    <label for="reg_number" class="form-label">Registration Number:</label>
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <select class="form-select" aria-label="Default select example" required>
+                                <option selected>Year</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-select" aria-label="Default select example" required>
+                                <option selected>Department</option>
+                                <option value="L">A</option>
+                                <option value="L">L</option>
+                                <option value="MGT">BAD</option>
+                                <option value="MGT">BS</option>
+                                <option value="MGT">BST</option>
+                                <option value="MGT">COM</option>
+                                <option value="CSC">CSC</option>
+                                <option value="PHY">PHY</option>
+                                <option value="BIO">BIO</option>
+                                <option value="AHS">MS</option>
+                                <option value="AHS">NUR</option>
+                                <option value="AHS">PHA</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" id="reg_no" name="reg_no" class="form-control"  placeholder="000" required>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <label for="nic" class="form-label">NIC:</label>
+                    <input type="text" id="nic" name="nic" class="form-control" required>
+                </div>
+
             </div>
+
+            
             <div class="mb-3">
                 <label for="full_name" class="form-label">Full Name:</label>
                 <input type="text" id="full_name" name="full_name" class="form-control" required>
@@ -25,25 +71,46 @@
                 <label for="name_with_initials" class="form-label">Name with Initials:</label>
                 <input type="text" id="name_with_initials" name="name_with_initials" class="form-control" required>
             </div>
-            <div class="mb-3">
-                <label for="gender" class="form-label">Gender:</label>
-                <select id="gender" name="gender" class="custom-select" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
+
+            <div class="row g-3">
+                <div class="col-sm-4">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected>Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                      </select>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="martial_status" class="form-label">Marital Status:</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected>Status</option>
+                        <option value="1">Single</option>
+                        <option value="2">Maried</option>
+                      </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="dob" class="form-label">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" class="form-control" required>
+                </div>
+            </div><br>
+
+            <div  class="row g-3">
+
+                <div class="col-md-6">
+                    <label for="mobile_number" class="form-label">Mobile Number:</label>
+                    <input type="text" id="mobile_number" name="mobile_number" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
             </div>
-            <div class="mb-3">
-                <label for="dob" class="form-label">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="mobile_number" class="form-label">Mobile Number:</label>
-                <input type="text" id="mobile_number" name="mobile_number" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
+            
+            
             <div class="mb-3">
                 <label for="residential_address" class="form-label">Residential Address:</label>
                 <input type="text" id="residential_address" name="residential_address" class="form-control" required>
@@ -52,53 +119,137 @@
                 <label for="permenent_address" class="form-label">Permanent Address:</label>
                 <input type="text" id="permenent_address" name="permenent_address" class="form-control" required>
             </div>
-            <div class="mb-3">
-                <label for="nic" class="form-label">NIC:</label>
-                <input type="text" id="nic" name="nic" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="martial_status" class="form-label">Marital Status:</label>
-                <select id="martial_status" name="martial_status" class="custom-select" required>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="faculty" class="form-label">Faculty:</label>
-                <input type="text" id="faculty" name="faculty" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="department" class="form-label">Department:</label>
-                <input type="text" id="department" name="department" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="height" class="form-label">Height (cm):</label>
-                <input type="text" id="height" name="height" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="weight" class="form-label">Weight (kg):</label>
-                <input type="text" id="weight" name="weight" class="form-control" required>
-            </div>
+            
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label for="faculty" class="form-label">Faculty:</label>
+                    <select id="faculty" class="form-select" aria-label="Default select example" onchange="updateOptions()" required>
+                        <option selected>--Select--</option>
+                        <option value="science">Science</option>
+                        <option value="management">Management</option>
+                        <option value="art">ART</option>
+                      </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="department" class="form-label">Department:</label>
+                    <select id="department" class="form-select" aria-label="Default select example" required>
+                        <option selected>--select--</option>
+                    </select>
+
+                    <script>
+                        function updateOptions() {
+                            // Get the selected value from the first select box
+                            var category = document.getElementById("faculty").value;
+                
+                            // Get the second select box
+                            var subject = document.getElementById("department");
+                
+                            // Clear previous options
+                            subject.innerHTML = '<option value="">--Select--</option>';
+                
+                            // Define options for Science
+                            if (category === "science") {
+                                var scienceOptions = ["CSC", "PHY", "BIO"];
+                                scienceOptions.forEach(function(option) {
+                                    var newOption = document.createElement("option");
+                                    newOption.value = option.toLowerCase();
+                                    newOption.text = option;
+                                    subject.appendChild(newOption);
+                                });
+                            }
+                
+                            // Define options for Management
+                            else if (category === "management") {
+                                var managementOptions = ["MGT", "BCOM"];
+                                managementOptions.forEach(function(option) {
+                                    var newOption = document.createElement("option");
+                                    newOption.value = option.toLowerCase();
+                                    newOption.text = option;
+                                    subject.appendChild(newOption);
+                                });
+                            }
+
+                            else if (category === "art") {
+                                var managementOptions = ["LAW", "ART"];
+                                managementOptions.forEach(function(option) {
+                                    var newOption = document.createElement("option");
+                                    newOption.value = option.toLowerCase();
+                                    newOption.text = option;
+                                    subject.appendChild(newOption);
+                                });
+                            }
+                        }
+                    </script>
+
+                </div>
+
+            </div><br>
+
+            <div class="row g-3">
+                <div class="col-sm-4">
+                    <label for="blood_group" class="form-label">Blood Group:</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected>Blood group</option>
+                        <option value="1">A+</option>
+                        <option value="2">B-</option>
+                        <option value="3">A-</option>
+                        <option value="4">B+-</option>
+                        <option value="5">AB-</option>
+                        <option value="6">AB+</option>
+                        <option value="7">0-</option>
+                        <option value="8">0+</option>
+                      </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="height" class="form-label">Height (cm):</label>
+                    <input type="text" id="height" name="height" class="form-control" required>
+                </div>
+                <div class="col-sm-4">
+                    <label for="weight" class="form-label">Weight (kg):</label>
+                    <input type="text" id="weight" name="weight" class="form-control" required>
+                </div>
+            </div><br>
+            
+            
             <div class="mb-3">
                 <label for="gardian_name" class="form-label">Guardian Name:</label>
                 <input type="text" id="gardian_name" name="gardian_name" class="form-control" required>
             </div>
-            <div class="mb-3">
-                <label for="relation" class="form-label">Relation:</label>
-                <input type="text" id="relation" name="relation"class="form-control" required>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="relation" class="form-label">Relation:</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected>Relation</option>
+                        <option value="1">Mother</option>
+                        <option value="2">Father</option>
+                        <option value="3">Gardian</option>
+                      </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="contact_number" class="form-label">Guardian Contact Number:</label>
+                    <input type="text" id="contact_number" name="contact_number" class="form-control" required>
+                </div>
+            </div><br>
+
+            
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Re-Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="contact_number" class="form-label">Guardian Contact Number:</label>
-                <input type="text" id="contact_number" name="contact_number" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="blood_group" class="form-label">Blood Group:</label>
-                <input type="text" id="blood_group" name="blood_group" class="form-control">
-            </div>
+
+            
+            
             <div class="mb-3">
                 <label for="last_school_attend" class="form-label">Last School Attended:</label>
                 <input type="text" id="last_school_attend" name="last_school_attend" class="form-control">
@@ -107,13 +258,23 @@
                 <label for="profile_photo" class="form-label">Profile Photo (URL):</label>
                 <input type="text" id="profile_photo" name="profile_photo" class="form-control">
             </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Sign Up</button>
+                </div>
+
+                <div class="col-md-6">
+                    <button type="reset" class="btn btn-lg btn-primary w-100 fs-6">Reset</button>
+                </div>
+                
             </div>
 
         </div>
         
     </form>
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
