@@ -18,7 +18,7 @@
                     $_SESSION['dr_id'] = $row['dr_id'];
                     $_SESSION['dr_nic'] = $row['nic'];
                     $_SESSION['dr_name'] = $row['dr_name'];
-                    header('location: index.php');
+                    header('location: ./doctor_dashbord.php');
                 }
             }else {
                 echo "<script>alert('doctor not found');</script>";
@@ -29,36 +29,24 @@
     
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Login</title>
-    <link rel ="stylesheet" href="../CSS/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-<body>
-
+<?php include("./doctor_header.php") ?>
     <div class="login-container">
+    <div class="doctor-form">
         <h2>Doctor Login</h2>
         <form action="" method="POST">
-            <!-- reg number -->
-            <div class="input-icon">
+            <div class="input-icon form-group d-flex">
                 <i class="fa fa-user"></i>
-                <input type="text" name="dr_nic" id="regno" placeholder="Nic Number" required>
+                <input type="text" class="form-control" name="dr_nic" id="regno" placeholder="Nic Number" required>
             </div>
 
-            <!-- password -->
-            <div class="input-icon">
+            <div class="input-icon form-group d-flex">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="dr_password" id="pwd" placeholder="Password" required>
+                <input type="password" class="form-control" name="dr_password" id="pwd" placeholder="Password" required>
             </div>
 
-            <button type="submit" name="login_submit">Login</button>
+            <button type="submit" name="login_submit" class="btn btn-primary">Login</button>
         </form>
         <p><a href ="changepwd.php"> Change password?</a></p>
     </div>
-</body>
-</html>
+    </div>
+<?php include('./doctor_footer.php') ?>

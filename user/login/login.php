@@ -14,7 +14,8 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $row['password'])) {
         $_SESSION['reg_number'] = $row['reg_number'];
         $_SESSION['full_name'] = $row['full_name'];
-        echo "Login successful! Welcome, " . $row['full_name'];
+        $_SESSION['username'] = $row['name_with_initials'];
+        header("location: ../index.php");
     } else {
         echo "Incorrect password.";
     }
