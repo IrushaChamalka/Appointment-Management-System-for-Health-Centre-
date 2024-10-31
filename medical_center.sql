@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2024 at 06:14 AM
+-- Generation Time: Oct 31, 2024 at 11:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,7 +37,6 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_name`, `admin_password`) VALUES
-('admin', 'admin'),
 ('admin', '$2y$10$sf1MhNcRVF.MCUsD7fNIrOzjpzyyfXUHQoxKR4FPu1qLqVan6K4aO');
 
 -- --------------------------------------------------------
@@ -54,20 +53,20 @@ CREATE TABLE `bookings` (
   `email` varchar(50) NOT NULL,
   `date` date NOT NULL,
   `remark` varchar(300) NOT NULL,
-  `gender` varchar(10) NOT NULL
+  `gender` varchar(10) NOT NULL,
+  `marked` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `number`, `reg_number`, `name`, `email`, `date`, `remark`, `gender`) VALUES
-(135, 1, '2021-CSC-08', 'K.S.N. Perera', 'snirthana1@gmail.com', '2024-10-23', '', ''),
-(137, 89, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-26', 'Sick', 'Male'),
-(138, 47, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-26', '', 'Male'),
-(139, 26, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-26', '', 'Male'),
-(140, 1, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-28', '', 'Male'),
-(141, 2, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-28', '', 'Male');
+INSERT INTO `bookings` (`id`, `number`, `reg_number`, `name`, `email`, `date`, `remark`, `gender`, `marked`) VALUES
+(144, 1, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-31', '', 'Male', 0),
+(145, 3, '2021CSC082', 'I. Chamalka', 'irushakavi@gmail.com', '2024-10-31', '', 'Male', 1),
+(146, 2, '2021CSC081', 'K.S.N. Perera', 'snirthana1@gamil.com', '2024-10-31', '', 'Male', 0),
+(147, 25, '2021CSC082', 'I. Chamalka', 'irushakavi@gmail.com', '2024-10-31', '', 'Male', 0),
+(148, 20, '2021CSC103', 'M.P.M.PERERA', 'prabhathmadhuranga37@gmail.com', '2024-10-31', '', 'Male', 0);
 
 -- --------------------------------------------------------
 
@@ -84,6 +83,7 @@ CREATE TABLE `doctor` (
   `address` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
+  `is_work` tinyint(1) NOT NULL,
   `password` varchar(100) NOT NULL DEFAULT 'newDoctor1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -91,10 +91,10 @@ CREATE TABLE `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`dr_id`, `dr_name`, `hospital`, `nic`, `contact_no`, `address`, `email`, `gender`, `password`) VALUES
-(20, 'J. Srikandarajah', 'Medical Center', '196632822435', 769090987, 'Jaffna', 'srikandarajah66@gmail.com', 'Female', '$2y$10$QCYYeXwXWhOWBr6yuN15AOFlAm18SuCKlUizBhjnuHiylUbaj0KCu'),
-(21, 'J. Lawrence', 'Medical Center', '197535173935', 766545782, 'Jaffna', 'lawrence75@gmail.com', 'Male', '$2y$10$QCYYeXwXWhOWBr6yuN15AOFlAm18SuCKlUizBhjnuHiylUbaj0KCu'),
-(30, 'J. Srikandarajah', 'Medical Center', '200127402679', 769090987, 'Jaffna', 'srikandarajah66@gmail.com', 'Female', '1234');
+INSERT INTO `doctor` (`dr_id`, `dr_name`, `hospital`, `nic`, `contact_no`, `address`, `email`, `gender`, `is_work`, `password`) VALUES
+(20, 'J. Srikandarajah', 'Medical Center', '196632822435', 769090987, 'Jaffna', 'srikandarajah66@gmail.com', 'Female', 0, '$2y$10$QCYYeXwXWhOWBr6yuN15AOFlAm18SuCKlUizBhjnuHiylUbaj0KCu'),
+(21, 'J. Lawrence', 'Medical Center', '197535173935', 766545782, 'Jaffna', 'lawrence75@gmail.com', 'Male', 1, '$2y$10$QCYYeXwXWhOWBr6yuN15AOFlAm18SuCKlUizBhjnuHiylUbaj0KCu'),
+(30, 'J. Srikandarajah', 'Medical Center', '200127402679', 769090987, 'Jaffna', 'srikandarajah66@gmail.com', 'Female', 0, '1234');
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,9 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`reg_number`, `full_name`, `name_with_initials`, `gender`, `dob`, `mobile_number`, `email`, `residential_address`, `permenent_address`, `nic`, `martial_status`, `faculty`, `department`, `height`, `weight`, `gardian_name`, `relation`, `contact_number`, `password`, `blood_group`, `last_school_attend`, `profile_photo`) VALUES
-('2021CSC081', 'Savidya Nirthana Perera', 'K.S.N. Perera', 'Male', '2001-09-30', 714322410, 'snirthana1@gamil.com', 'Kelaniya', 'Jaffna', '200127402679', 'Single', 'Science', 'Computer Science', 150, 60, 'K.S.P.Perera', 'Farther', 2147483647, '$2y$10$8cTGUakkkB2PQl5bFNG9luu8.vLuVlZbxolmJaOMl/acqcwcpehKO', 'O+', '', '');
+('2021CSC081', 'Savidya Nirthana Perera', 'K.S.N. Perera', 'Male', '2001-09-30', 714322410, 'snirthana1@gamil.com', 'Kelaniya', 'Jaffna', '200127402679', 'Single', 'Science', 'Computer Science', 150, 60, 'K.S.P.Perera', 'Farther', 2147483647, '$2y$10$8cTGUakkkB2PQl5bFNG9luu8.vLuVlZbxolmJaOMl/acqcwcpehKO', 'O+', '', ''),
+('2021CSC082', 'Irusha chamalka', 'I. Chamalka', 'Male', '2001-03-02', 714322410, 'irushakavi@gmail.com', 'Mahiyanganaya', 'Jaffna', '2001200517', 'Single', 'Science', 'computer science', 160, 80, 'M. M. G. Gamini', 'Father', 2147483647, '$2y$10$WbzrHXw3sMgVkFne8lfg0OibOF9nasE.LK335gelfri93sRCPQF0a', '0+', '', ''),
+('2021CSC103', 'MADDUMAGE PRABHATH MADHURANGA PERERA', 'M.P.M.PERERA', 'Male', '2001-05-29', 721230577, 'prabhathmadhuranga37@gmail.com', '938/35 kks road,  Jaffna.', 'No:07, West Kaluwarippuwa, Katana.', '200115002909', 'Single', 'Science', 'computer science', 171, 55, 'K.P.MALLIKA', 'Mother', 718940662, '$2y$10$5ptcU9i44NaBV0owjrPEEOzHaJPxMYiAan9WrlKrWWAbhQEKf0fam', 'B+-', '', '');
 
 --
 -- Indexes for dumped tables
@@ -158,7 +160,7 @@ ALTER TABLE `doctor`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `doctor`
