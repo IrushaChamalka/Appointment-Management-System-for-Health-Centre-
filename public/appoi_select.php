@@ -1,6 +1,4 @@
-    <?php
-      include('../db_config.php');
-    ?>
+
     <style>
       .custom-btn-size { 
         font-size: 10px;    

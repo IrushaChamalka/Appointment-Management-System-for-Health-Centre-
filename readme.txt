@@ -20,6 +20,9 @@ User dashbord
 username: 2021CSC081
 password: 123123
 
+username: 2021CSC082
+password: 123123
+
 -------------------------------------------
 
 Doctor dashbord
@@ -30,7 +33,7 @@ Username:196632822435
 Doctor2(Dr.J.Lawrence)
 Username:197535173935
 
-For the doctors, the default password is given as newDoctor@and the doctor can
+For the doctors, the default password is given as newDoctor@ and the doctor can
 change his password according to their preference through the system.
 
 

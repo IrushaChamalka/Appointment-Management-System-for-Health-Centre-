@@ -1,4 +1,5 @@
 <?php 
+    include('../db_config.php');
     include('./header.php');
     if(isset($_GET['path']))
     {

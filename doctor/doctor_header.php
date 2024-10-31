@@ -34,5 +34,65 @@
         .doctor-form>form>div{
             padding: 10px;
         }
+        .uoj-logo {
+            height: 100px;
+            padding-left: 20px;
+        }
+        .nav-links {
+            float: left;
+            list-style: none;
+            margin-right: 50px;
+
+        }
+        .nav-links .link {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .nav-links .link.active {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        <?php  if(!isset($_SESSION['dr_id'])) { ?>
+        .navbar {
+            position: absolute;
+            width: 100%;
+        }
+
+        <?php } ?>
+        <?php 
+            if(isset($_GET['path'])) {
+                $path = $_GET['path'];
+            }
+        
+        ?>
 
     </style>
+
+    <header>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+        <img class="card-img-left uoj-logo" src="../assets/images/uoj_logo.png" alt="log image uoj">
+        <?php if(isset($_SESSION['dr_nic'])) {?>
+        <ul class="nav-links">
+            <li class="link <?php echo (empty($path)) ? 'active': "" ?>" data-url = "appointment">Appointments</li>
+            <li class="link <?php echo ($path === "logout") ? 'active': "" ?>" data-url="logout">Logout</li>
+        </ul>
+        <?php } ?>
+        </nav>  
+
+        <script>
+        const links =document.querySelectorAll(".link");
+        links.forEach(element => {
+            element.addEventListener('click', (e)=> {
+                const path =element.getAttribute('data-url');
+                window.location.href = '?path='+ path;
+            })
+        });
+
+    </script>
+    </header>
+

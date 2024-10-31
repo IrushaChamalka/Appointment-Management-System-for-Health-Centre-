@@ -1,6 +1,7 @@
 <?php
-    include("../db_config.php");
     session_start();
+    include("../db_config.php");
+    
 
     if(isset($_POST["login_submit"])){
         $dr_nic = $_POST["dr_nic"];
