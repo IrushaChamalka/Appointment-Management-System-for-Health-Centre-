@@ -36,7 +36,7 @@ $sql = "INSERT INTO user_details (reg_number, full_name, name_with_initials, gen
 VALUES ('$reg_number', '$full_name', '$name_with_initials', '$gender', '$dob', '$mobile_number', '$email', '$residential_address', '$permenent_address', '$nic', '$martial_status', '$faculty', '$department', '$height', '$weight', '$gardian_name', '$relation', '$contact_number', '$password', '$blood_group', '$last_school_attend', '$profile_photo')";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ./?path=login");
+    header("location: ../../public/?path=login");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
