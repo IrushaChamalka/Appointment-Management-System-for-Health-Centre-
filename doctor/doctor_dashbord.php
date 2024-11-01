@@ -187,6 +187,7 @@
       }
       $sql= "UPDATE `bookings` SET `marked`='$mark' WHERE `number` = '$sheet' AND `date`='$date';";
       mysqli_query($conn, $sql);
+      ?> <script>window.location.href="./"</script><?php
     }
       
     

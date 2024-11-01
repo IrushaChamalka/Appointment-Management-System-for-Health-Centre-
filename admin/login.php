@@ -1,6 +1,9 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     include("../db_config.php");
-    session_start();
+
 
     if(isset($_POST["login_submit"])){
         $admin_username = $_POST["admin-username"];
