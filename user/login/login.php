@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
         $_SESSION['reg_number'] = $row['reg_number'];
         $_SESSION['full_name'] = $row['full_name'];
         $_SESSION['username'] = $row['name_with_initials'];
-        header("location: ../index.php");
+        header("location: ./../index.php?path=appoinment");
     } else {
         ?>
         <div class="modal fade" id="incorrect_pwd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>medibook</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -10,3 +9,89 @@
     
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .input-icon i {
+            margin-right: 10px;
+            line-height: 1.5;
+        }
+        h2 {
+            padding: 20px;
+        }
+
+        .doctor-form{
+            width: 500px
+        }
+
+        .doctor-form>form>div{
+            padding: 10px;
+        }
+        .uoj-logo {
+            height: 100px;
+            padding-left: 20px;
+        }
+        .nav-links {
+            float: left;
+            list-style: none;
+            margin-right: 50px;
+
+        }
+        .nav-links .link {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .nav-links .link.active {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        <?php  if(!isset($_SESSION['dr_id'])) { ?>
+        .navbar {
+            position: absolute;
+            width: 100%;
+        }
+
+        <?php } ?>
+        <?php 
+            if(isset($_GET['path'])) {
+                $path = $_GET['path'];
+            }
+        
+        ?>
+
+    </style>
+
+    <header>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+        <img class="card-img-left uoj-logo" src="../assets/images/uoj_logo.png" alt="log image uoj">
+        <?php if(isset($_SESSION['username'])) {?>
+        <ul class="nav-links">
+            <li class="link k1 <?php echo ($path === "appoinment") ? 'active': "" ?>" data-url = "appoinment">Appointments</li>
+            <li class="link k1 <?php echo ($path === "dashboard" ) ? 'active': "" ?>" data-url = "dashboard">Dashboard</li>  
+            <li class="link" onclick="window.location.href='./../user/login/logout.php'">Logout</li>
+        </ul>
+        <?php } ?>  
+        </nav>  
+
+        <script>
+        const links =document.querySelectorAll(".k1");
+        links.forEach(element => {
+            element.addEventListener('click', (e)=> {
+                const path =element.getAttribute('data-url');
+                window.location.href = '?path='+ path;
+            })
+        });
+
+    </script>
+    </header>

@@ -65,6 +65,7 @@
 
       <?php 
       $booked = array();
+      $marked = array();
       if($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST['select-date'])){
         $selected = $_POST['select-date'];
         if($selected === "today") {
@@ -77,24 +78,35 @@
         $date = new DateTime();
         $selected = $date->format('Y-m-d'); 
       }
-      $sel_query = "SELECT number FROM `bookings` WHERE `date` = '$selected'";
+      $sel_query = "SELECT * FROM `bookings` WHERE `date` = '$selected'";
       $result = mysqli_query($conn, $sel_query);
     
       if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
           array_push($booked, $row['number']);
+          if($row['marked'] == 1) {
+            array_push($marked, $row['number']);
+          }
         }
       }
       for($i=1; $i<=100; $i++) {
+
         ?>
 
         <div class="p-2" style="max-width: calc(10% - 10px)">
           <?php 
           if(in_array($i, $booked)){
-            ?>
-              <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
-              <label class="btn btn-outline-danger custom-btn-size" for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
-            <?php
+            if(in_array($i, $marked)){
+              ?>
+                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
+                <label class="btn btn-outline-success custom-btn-size" for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
+              <?php
+            }else{
+              ?>
+                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
+                <label class="btn btn-outline-danger custom-btn-size" onclick="showModal(<?php echo $i; ?>)"  for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
+              <?php
+            }
           }
           else {
             ?>
