@@ -1,5 +1,5 @@
 <?php
-    define('HOST', '10.10.10.157');
+    define('HOST', 'localhost');
     define('U_NAME', 'csc210user');
     define('DB_PASS', 'CSC210!');
     define('DB_NAME','group13');
