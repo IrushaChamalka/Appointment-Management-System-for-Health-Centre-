@@ -23,6 +23,8 @@
                     
                     $_SESSION['admin-username'] = $row['admin_name'];
                     header("location: index.php");
+                }else{
+                    
                 }
             }else {
                 echo "<script>password incorrect;</script>";
@@ -50,7 +52,6 @@
 
             <button type="submit" name="login_submit" class="btn btn-primary">Login</button>
         </form>
-        <p><a href ="changepwd.php"> Change password?</a></p>
     </div>
     </div>
 <?php include('./admin_footer.php') ?>

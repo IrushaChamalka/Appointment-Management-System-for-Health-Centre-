@@ -22,14 +22,14 @@ if ($result->num_rows > 0) {
             <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registration Number Not Found</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Registration Number Or Password Not Match</h5>
                 </div>
                 <div class="modal-body">
                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='/medibook/public/?path=login'">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='./#'">Create New Account</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='../../public/?path=signup'">Create New Account</button>    
                 </div>
             </div>
         </div>
@@ -44,7 +44,31 @@ if ($result->num_rows > 0) {
       <?php
     }
 } else {
-    echo "No user found with that registration number.";
+    ?>
+        <div class="modal fade" id="incorrect_pwd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registration Number Not Found</h5>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='/medibook/public/?path=login'">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='../../public/?path=signup'">Create New Account</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let incorrect_pwd = new bootstrap.Modal(document.getElementById('incorrect_pwd'));
+                incorrect_pwd.show();
+            });
+          </script>
+
+      <?php
 }
 
 $conn->close();

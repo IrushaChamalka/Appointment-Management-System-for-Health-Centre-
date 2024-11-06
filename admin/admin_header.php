@@ -79,7 +79,6 @@
             <?php  if(isset($_SESSION['admin-username'])) { ?>
             <li class="link <?php echo (empty($path)) ? 'active': "" ?>" data-url = "Appointments">Appointments</li>
             <li class="link <?php echo ($path === "doctor") ? 'active': "" ?>" data-url="doctor">Doctor</li>
-            <li class="link <?php echo ($path === "staff") ? 'active': "" ?>" data-url="staff">Staff</li>
             <li class="link <?php echo ($path === "logout") ? 'active': "" ?>" data-url="logout">Logout</li>
             <?php } ?>
         </ul>

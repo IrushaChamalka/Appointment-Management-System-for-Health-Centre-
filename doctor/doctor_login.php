@@ -22,9 +22,57 @@
                     $_SESSION['dr_nic'] = $row['nic'];
                     $_SESSION['dr_name'] = $row['dr_name'];
                     header('location: ./index.php');
+                }else{
+                    ?>
+                    <div class="modal fade" id="incorrect_pwd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">NIC or Password incorrect</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>If you're having trouble logging in, please contact the administrator for assistance.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='./'">Try Again</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            let incorrect_pwd = new bootstrap.Modal(document.getElementById('incorrect_pwd'));
+                            incorrect_pwd.show();
+                        });
+                    </script>
+
+                    <?php
                 }
             }else {
-                echo "<script>alert('doctor not found');</script>";
+                ?>
+                    <div class="modal fade" id="incorrect_pwd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Doctor Not Found</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>If you're having trouble logging in, please contact the administrator for assistance.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='./'">Try Again</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            let incorrect_pwd = new bootstrap.Modal(document.getElementById('incorrect_pwd'));
+                            incorrect_pwd.show();
+                        });
+                    </script>
+
+                    <?php
             }
         }
     }
@@ -49,7 +97,6 @@
 
             <button type="submit" name="login_submit" class="btn btn-primary">Login</button>
         </form>
-        <p><a href ="changepwd.php"> Change password?</a></p>
     </div>
     </div>
 <?php include('./doctor_footer.php') ?>
