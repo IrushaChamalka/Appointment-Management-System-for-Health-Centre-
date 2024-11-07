@@ -1,5 +1,7 @@
 <?php
-session_start(); 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $reg_num = $_SESSION['reg_number'];
 $today =new DateTime();
 $today_date=$today->format('Y-m-d');
@@ -9,7 +11,7 @@ $result = mysqli_query($conn, $sql_active);
 ?>
 
 <body>
-    <h4 style="margin-top: 100px; margin-left: 20px; margin-bottom: 20px;">Active Appointment:</h4>
+    <h4 style="margin-top: 50px; margin-left: 20px; margin-bottom: 20px;">Active Appointment:</h4>
     <div class="" style="margin-left: 30px; display: flex; flex-wrap: wrap; gap: 10px">
     <?php 
         if(mysqli_num_rows($result)>0){
@@ -43,7 +45,8 @@ $result = mysqli_query($conn, $sql_active);
 
     </div>
 
-    <?php } ?>
+    <?php } 
+    ?>
 
     </div>
 

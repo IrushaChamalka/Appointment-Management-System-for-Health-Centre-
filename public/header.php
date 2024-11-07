@@ -49,7 +49,7 @@
             <li class="link <?php echo ($path === "about") ? 'active': "" ?>" data-url="about">About</li>
             <li class="link <?php echo ($path === "staff") ? 'active': "" ?>" data-url="staff">Staff</li>
             <li class="link <?php echo ($path === "login") ? 'active': "" ?>" data-url="login">Sign In</li>
-            <li class="link <?php echo ($path === "signup") ? 'active': "" ?>" data-url="signup">Singn Up</li>
+            <li class="link <?php echo ($path === "signup") ? 'active': "" ?>" data-url="signup">Sign Up</li>
         </ul>
         </nav>  
     </header>

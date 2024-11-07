@@ -30,36 +30,36 @@ if(mysqli_num_rows($result) > 0) {
 ?> </div> <?php
 
 ?>
-    <div class="mt-4" style="width: 50%; ">
+    <div class="mt-4" style="width: 50%;">
         <h3 class="m-4 text-center">Add Doctors</h3>
         <form method="post" action="#" class="w-40 mt-2" style=" width: 400px; margin:auto">
         <div class="form-group mb-3">
-                <label for="name">NAME</label>
+                <label for="name" class="small p-2">NAME</label>
                 <input type="text" class="form-control" id="name" name="name"  placeholder="Enter NAME" required>
             </div>
             <div class="form-group mb-3">
-                <label for="nic">NIC</label>
+                <label for="nic" class="small p-2">NIC</label>
                 <input type="text" class="form-control" id="nic" name="nic" placeholder="Enter NIC" required>
             </div>
             <div class="form-group mb-3">
-                <label for="hospital">HOSPITAL</label>
+                <label for="hospital" class="small p-2">HOSPITAL</label>
                 <input type="text" class="form-control" id="hospital" name="hospital"  placeholder="Enter Hospital" required>
             </div>
             <div class="form-group mb-3">
-                <label for="phone">CONTACT NO</label>
+                <label for="phone" class="small p-2">CONTACT NO</label>
                 <input type="tel" class="form-control" id="phone" name="number" placeholder="Contact No" required>
             </div>
             <div class="form-group mb-3">
-                <label for="address">ADDRESS</label>
+                <label for="address" class="small p-2">ADDRESS</label>
                 <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" required>
             </div>
             <div class="form-group mb-3">
-                <label for="email">Email</label>
+                <label for="email" class="small p-2">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
             </div>
             <div class="form-group mb-3">
-                MALE:<input type="radio" name="gender" id="" value="Male">
-                FEMALE:<input type="radio" name="gender" id="" value="Female">
+                <span class=" p-2 small">MALE:</span><input type="radio" name="gender" id="" value="Male">
+                <span class=" p-2 small">FEMALE:</span><input type="radio" name="gender" id="" value="Female">
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
         </form>
