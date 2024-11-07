@@ -91,7 +91,9 @@ $result = mysqli_query($conn, $sql_active);
 
     </div>
 
-    <?php }?>
+    <?php }
+    
+    ?>
     
 
 </body>
