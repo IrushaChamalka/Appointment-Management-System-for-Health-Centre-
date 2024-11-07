@@ -41,7 +41,7 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='.'">Close</button>
             
-                <button type="submit" name="appoinment_submit" class="btn btn-primary">Place your appointment</button>
+            <input type="submit" name="appoinment_submit" class="btn btn-primary" values="Place your appointment"/>
             
             
         </div>
@@ -50,6 +50,7 @@
 </div>
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        var_dump($_POST);
         if(isset($_POST["appoinment_submit"])){
             $reg = $row['reg_number'];
             $name = $row['name_with_initials'];
@@ -62,6 +63,7 @@
                 <script>window.location.href = "./"</script>
             <?php
         }
+        
     }
     
 ?>

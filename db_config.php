@@ -4,10 +4,10 @@
     define('DB_PASS', 'CSC210!');
     define('DB_NAME','group13');
 
-    //define('HOST', 'localhost');
-    //define('U_NAME', 'root');
-    //define('DB_PASS', '');
-    //define('DB_NAME','medical_center');
+    // define('HOST', 'localhost');
+    // define('U_NAME', 'root');
+    // define('DB_PASS', '');
+    // define('DB_NAME','medical_center');
     
 
 
