@@ -8,7 +8,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='.'">Close</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href='./#'">Create New Account</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='./?path=signup'">Create New Account</button>
         </div>
     </div>
 </div>

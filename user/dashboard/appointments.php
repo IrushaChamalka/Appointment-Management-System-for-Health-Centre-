@@ -3,7 +3,8 @@ session_start();
 $reg_num = $_SESSION['reg_number'];
 $today =new DateTime();
 $today_date=$today->format('Y-m-d');
-$sql_active = "SELECT * FROM `bookings` WHERE `reg_number` = '$reg_num' AND `marked` = 1 AND `date` = '$today_date' ORDER BY `date`  DESC";
+
+$sql_active = "SELECT * FROM `bookings` WHERE `reg_number` = '$reg_num' AND `marked` = 0 AND `date` = '$today_date'";
 $result = mysqli_query($conn, $sql_active);
 ?>
 
@@ -48,15 +49,15 @@ $result = mysqli_query($conn, $sql_active);
 
 <?php
     $sql_all = "SELECT * FROM `bookings` WHERE `reg_number` = '$reg_num'  ORDER BY `date`  DESC";
-    $result = mysqli_query($conn, $sql_all);
+    $result2 = mysqli_query($conn, $sql_all);
 ?>
 
 <body>
 <h4 style="margin-top: 50px; margin-left: 20px; margin-bottom: 40px">Previous Appointment:</h4>
     <div class="d-flex gap-5 flex-wrap" style="margin-left: 30px;">
     <?php 
-        if(mysqli_num_rows($result)>0){
-            while($row=mysqli_fetch_assoc($result)){
+        if(mysqli_num_rows($result2)>0){
+            while($row=mysqli_fetch_assoc($result2)){
                 ?> 
                     <div class="card mb-5" style="min-width: 300px">
                         <div class="card-header" >
@@ -87,7 +88,8 @@ $result = mysqli_query($conn, $sql_active);
 
     </div>
 
-    <?php } ?>
+    <?php }?>
+    
 
 </body>
 

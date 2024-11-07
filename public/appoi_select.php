@@ -98,12 +98,12 @@
           if(in_array($i, $booked)){
             if(in_array($i, $marked)){
               ?>
-                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked disabled>
                 <label class="btn btn-outline-success custom-btn-size" for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
               <?php
             }else{
               ?>
-                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="" id=<?php echo "btnradio".$i ?> autocomplete="off" checked disabled>
                 <label class="btn btn-outline-danger custom-btn-size" onclick="showModal(<?php echo $i; ?>)"  for=<?php echo "btnradio".$i ?>><span class="" style=" font-size: 14px"><?php echo $i ?></span></label>
               <?php
             }
