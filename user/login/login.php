@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
                   
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='/medibook/public/?path=login'">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.href='../../public/?path=login'">Close</button>
                     <button type="button" class="btn btn-primary" onclick="window.location.href='../../public/?path=signup'">Create New Account</button>    
                 </div>
             </div>
