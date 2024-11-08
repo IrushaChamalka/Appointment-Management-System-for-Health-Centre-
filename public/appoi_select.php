@@ -1,22 +1,3 @@
-<?php 
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["appoinment_submit"])){
-        $reg = $row['reg_number'];
-        $name = $row['name_with_initials'];
-        $email = $row['email'];
-        $gender = $row['gender'];
-        
-        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
-        mysqli_query($conn, $push_apt_sql);
-        ?>
-             <script>window.location.href = "./"</script>
-         <?php
-    }
-    
-}
-
-?>
-
 
     <style>
       .custom-btn-size { 
@@ -259,7 +240,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Additional Information</h5>
                     </div>
-                    <form action="" method="POST">
+                    <form action="" method="post">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">REMARK:</label>
@@ -301,7 +282,24 @@
 
 ?>
 
+<?php 
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST["appoinment_submit"])){
+        $reg = $row['reg_number'];
+        $name = $row['name_with_initials'];
+        $email = $row['email'];
+        $gender = $row['gender'];
+        
+        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
+        mysqli_query($conn, $push_apt_sql);
+        ?>
+             <script>window.location.href = "./"</script>
+         <?php
+    }
+    
+}
 
+?>
 
 
 </div>
