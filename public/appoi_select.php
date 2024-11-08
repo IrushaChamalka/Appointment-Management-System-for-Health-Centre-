@@ -310,7 +310,7 @@
           $push_apt_sql = "INSERT INTO `bookings` (`number`, `reg_number`, `name`, `email`, `date`,`remark`,`gender`, `marked`) VALUES ('$sheet','$reg','$name','$email','$selected1','$remark','$gender', 0)";
           mysqli_query($conn, $push_apt_sql);
           ?>
-             <script>window.location.href = "./<?php echo $selected1 ?>"</script>
+             <script>window.location.href = "./"</script>
          <?php
         }
 
