@@ -1,3 +1,22 @@
+<?php 
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST["appoinment_submit"])){
+        $reg = $row['reg_number'];
+        $name = $row['name_with_initials'];
+        $email = $row['email'];
+        $gender = $row['gender'];
+        
+        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
+        mysqli_query($conn, $push_apt_sql);
+        ?>
+             <script>window.location.href = "./"</script>
+         <?php
+    }
+    
+}
+
+?>
+
 
     <style>
       .custom-btn-size { 
@@ -282,24 +301,7 @@
 
 ?>
 
-<?php 
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["appoinment_submit"])){
-        $reg = $row['reg_number'];
-        $name = $row['name_with_initials'];
-        $email = $row['email'];
-        $gender = $row['gender'];
-        
-        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
-        mysqli_query($conn, $push_apt_sql);
-        ?>
-             <script>window.location.href = "./"</script>
-         <?php
-    }
-    
-}
 
-?>
 
 
 </div>
