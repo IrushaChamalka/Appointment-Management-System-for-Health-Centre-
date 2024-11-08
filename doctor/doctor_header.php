@@ -79,6 +79,7 @@
         <?php if(isset($_SESSION['dr_nic'])) {?>
         <ul class="nav-links">
             <li class="link <?php echo (empty($path)) ? 'active': "" ?>" data-url = "appointment">Appointments</li>
+            <li class="link <?php echo ($path === "reset") ? 'active': "" ?>" data-url = "reset">Reset Password</li>
             <li class="link <?php echo ($path === "logout") ? 'active': "" ?>" data-url="logout">Logout</li>
         </ul>
         <?php } ?>

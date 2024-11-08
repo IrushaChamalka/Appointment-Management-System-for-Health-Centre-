@@ -219,28 +219,6 @@
                     </div>
                 </div>
             </div>
-            <center><div class="col-md-4 mt-5" style="border:2px solid black;">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span><b>Change Password</b></span></div><br>
-                    <form action="" method="POST">
-                        <div class="col-md-12">
-                            <label class="labels">Current Password</label>
-                            <input type="password" name="current_password" class="form-control"  value="<?php setValue('')?>">
-                        </div> <br>
-                        <div class="col-md-12">
-                            <label class="labels">New Password</label>
-                            <input type="password" name="new_password" class="form-control"  value="<?php setValue('')?>">
-                        </div><br>
-                        <div class="col-md-12">
-                            <label class="labels">Confirm New Password</label>
-                            <input type="password" name="confirm_new_password" class="form-control"  value="<?php setValue('')?>">
-                        </div>
-                        <div class="mt-5 text-center">
-                            <button class="btn btn-primary profile-button" type="submit" name="password_change">Change Password</button>
-                        </div>
-                    </form>
-                </div>
-            </div></center>
         </div>
     </div>
     <!-- </div>

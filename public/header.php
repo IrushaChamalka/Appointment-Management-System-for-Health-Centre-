@@ -41,6 +41,7 @@
         
         ?>
     </style>
+    <body>
     <header>
         <nav class="navbar navbar-light bg-light justify-content-between">
         <img class="card-img-left uoj-logo" src="../assets/images/uoj_logo.png" alt="log image uoj">

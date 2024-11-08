@@ -10,8 +10,8 @@ $sql_active = "SELECT * FROM `bookings` WHERE `reg_number` = '$reg_num' AND `mar
 $result = mysqli_query($conn, $sql_active);
 ?>
 
-<body>
-    <h4 style="margin-top: 50px; margin-left: 20px; margin-bottom: 20px;">Active Appointment:</h4>
+
+    <h4 style="margin-left: 20px; margin-bottom: 20px; padding-top: 140px;">Active Appointment:</h4>
     <div class="" style="margin-left: 30px; display: flex; flex-wrap: wrap; gap: 10px">
     <?php 
         if(mysqli_num_rows($result)>0){
@@ -95,7 +95,5 @@ $result = mysqli_query($conn, $sql_active);
     
     ?>
     
-
-</body>
 
 

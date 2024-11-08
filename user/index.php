@@ -20,10 +20,21 @@ include('../db_config.php');
 
             include('dashboard/appointments.php');
         }
-        elseif($_GET['path'] === 'dashboard'){
 
+        elseif($_GET['path'] === 'dashboard'){
             include('dashboard/user_prof.php');
-        }else {
+        }
+        elseif($_GET['path'] === 'reset'){
+
+            include('reset_password/reset_password.php');
+        }
+        elseif($_GET['path'] === 'logout') {
+            ?>
+                <script>window.location.href="./login/logout.php"</script>
+            <?php
+        }
+        
+        else {
             include('dashboard/appointments.php');
         }
 

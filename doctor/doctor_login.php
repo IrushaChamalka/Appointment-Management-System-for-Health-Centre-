@@ -94,8 +94,8 @@
                 <i class="fa fa-lock"></i>
                 <input type="password" class="form-control" name="dr_password" id="pwd" placeholder="Password" required>
             </div>
-
             <button type="submit" name="login_submit" class="btn btn-primary">Login</button>
+
         </form>
     </div>
     </div>

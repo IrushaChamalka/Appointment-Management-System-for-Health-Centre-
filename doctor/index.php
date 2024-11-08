@@ -13,6 +13,9 @@
             elseif($_GET['path'] === 'logout'){
                 header('location: logout.php' );
             }
+            elseif($_GET['path'] === 'reset'){
+                include('./reset_password.php' );
+            }
             else {
                 header("location: .");
             }
@@ -22,5 +25,4 @@
         }
     }
 
-    
 ?>

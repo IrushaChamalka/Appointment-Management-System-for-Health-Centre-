@@ -79,6 +79,7 @@
         <ul class="nav-links">
             <li class="link k1 <?php echo ($path === "appoinment") ? 'active': "" ?>" data-url = "appoinment">Appointments</li>
             <li class="link k1 <?php echo ($path === "dashboard" ) ? 'active': "" ?>" data-url = "dashboard">Dashboard</li>  
+            <li class="link k1 <?php echo ($path === "reset" ) ? 'active': "" ?>" data-url = "reset">Reset Password</li>  
             <li class="link" onclick="window.location.href='./../user/login/logout.php'">Logout</li>
         </ul>
         <?php } ?>  
