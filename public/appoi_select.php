@@ -170,6 +170,9 @@
             <div class="input-group">
             <input type="text" name="sheet" class="sheet" value="" style="display: none;">
             </div>
+            <div class="input-group">
+            <input type="text" name="date" class="date" value="<?php echo $selected ?>" style="display: none;">
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '.'">Close</button>
@@ -231,7 +234,7 @@
                         </div>
                         <div class="form-group">
                             <label for="date">DATE:</label>
-                            <input type="text" class="form-control" name="date" id="date" disabled value="<?php echo $selected ?>">
+                            <input type="text" class="form-control" name="date" id="date" disabled value="<?php echo $_GET['date'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="sheet">SHEET:</label>
@@ -255,7 +258,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='.'">Close</button>
-                        <input type="button" class="btn btn-primary" value="Place your appointment" onclick="window.location.href='./?reg=<?php echo $row['reg_number']?>&sheet=<?php echo $sheet ?>&date=<?php echo $selected?>'"/>
+                        <input type="button" class="btn btn-primary" value="Place your appointment" onclick="window.location.href='./?reg=<?php echo $row['reg_number']?>&sheet=<?php echo $sheet ?>&date=<?php echo $_GET['date']?>'"/>
                     </div>
                     </form>
                 </div>
@@ -292,7 +295,7 @@
     if(isset($_GET["reg"])){
         $reg = $_GET['reg'];
         $sheet = $_GET['sheet'];
-        $selected = $_GET['date'];
+        $selected1 = $_GET['date'];
         $remark = '';
         $user_select_sql = "SELECT * FROM user_details WHERE reg_number = '$reg'";
         $user_res = mysqli_query($conn, $user_select_sql);
@@ -304,16 +307,19 @@
           $email = $row['email'];
           $gender = $row['gender'];
 
-          $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`,`remark`,`gender`, `marked`) VALUES ('$sheet','$reg','$name','$email','$selected','$remark','$gender', 0)";
+          $push_apt_sql = "INSERT INTO `bookings` (`number`, `reg_number`, `name`, `email`, `date`,`remark`,`gender`, `marked`) VALUES ('$sheet','$reg','$name','$email','$selected1','$remark','$gender', 0)";
           mysqli_query($conn, $push_apt_sql);
           ?>
-             <script>window.location.href = "./"</script>
+             <script>window.location.href = "./<?php echo $selected1 ?>"</script>
          <?php
         }
 
         
        
     }
+
+
+
     
 
 ?>
