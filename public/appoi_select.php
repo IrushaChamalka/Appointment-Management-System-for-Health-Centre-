@@ -249,7 +249,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='.'">Close</button>
-                        <input type="submit" name="appoinment_submit" class="btn btn-primary" values="Place your appointment"/>
+                        <input type="submit" name="appoinment_submit" class="btn btn-primary" value="Place your appointment"/>
                     </div>
                     </form>
                 </div>
@@ -284,14 +284,13 @@
 
 <?php 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    var_dump($_POST);
     if(isset($_POST["appoinment_submit"])){
         $reg = $row['reg_number'];
         $name = $row['name_with_initials'];
         $email = $row['email'];
         $gender = $row['gender'];
-        $remark = $_POST['remark'];
-        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `remark`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected','$remark', '$gender')";
+        
+        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
         mysqli_query($conn, $push_apt_sql);
         ?>
              <script>window.location.href = "./"</script>
