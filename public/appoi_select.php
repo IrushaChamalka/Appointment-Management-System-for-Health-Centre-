@@ -215,6 +215,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Please Confirm Your Details</h5>
                     </div>
+                    
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">NAME:</label>
@@ -240,16 +241,21 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Additional Information</h5>
                     </div>
-                    <form action="" method="post">
+                    <form action="" method="get">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">REMARK:</label>
                             <textarea class="form-control" name="remark"></textarea>
                         </div>
                     </div>
+                    <div class="form-group" style="display: none">
+                            <label for="nic">Reg</label>
+                            <input class="form-control" type="text" name="nic" id="nic" disabled value="<?php echo $row['reg_number']?> ">
+                        </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='.'">Close</button>
-                        <input type="submit" name="appoinment_submit" class="btn btn-primary" value="Place your appointment"/>
+                        <input type="button" class="btn btn-primary" value="Place your appointment" onclick="window.location.href='./?reg=<?php echo $row['reg_number']?>&sheet=<?php echo $sheet ?>&date=<?php echo $selected?>'"/>
                     </div>
                     </form>
                 </div>
@@ -283,21 +289,32 @@
 ?>
 
 <?php 
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["appoinment_submit"])){
-        $reg = $row['reg_number'];
-        $name = $row['name_with_initials'];
-        $email = $row['email'];
-        $gender = $row['gender'];
+    if(isset($_GET["reg"])){
+        $reg = $_GET['reg'];
+        $sheet = $_GET['sheet'];
+        $selected = $_GET['date'];
+        $remark = '';
+        $user_select_sql = "SELECT * FROM user_details WHERE reg_number = '$reg'";
+        $user_res = mysqli_query($conn, $user_select_sql);
         
-        $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`, `gender`) VALUES ('$sheet','$reg','$name','$email','$selected', '$gender')";
-        mysqli_query($conn, $push_apt_sql);
-        ?>
+        if( mysqli_num_rows($user_res) === 1){
+          $row = mysqli_fetch_assoc($user_res);
+
+          $name = $row['name_with_initials'];
+          $email = $row['email'];
+          $gender = $row['gender'];
+
+          $push_apt_sql = "INSERT INTO `bookings`(`number`, `reg_number`, `name`, `email`, `date`,`remark`,`gender`, `marked`) VALUES ('$sheet','$reg','$name','$email','$selected','$remark','$gender', 0)";
+          mysqli_query($conn, $push_apt_sql);
+          ?>
              <script>window.location.href = "./"</script>
          <?php
+        }
+
+        
+       
     }
     
-}
 
 ?>
 
